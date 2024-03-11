@@ -3,5 +3,66 @@ layout: layout.liquid
 title: 11ty Boilerplate
 ---
 
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/pine.png" width="50" />
+
+<div x-data="GetData()" x-init="ParseJson(GetRandom())">
+    <div class="max-w-md rounded overflow-hidden shadow-lg from-gray-50 p-4 m-4 bg-yellow-50">
+        <h1 x-text="product.title" class="text-center text-4xl font-bold mb-2 underline font-serif text-gray-600"></h1>
+        <img x-bind:src="product.thumbnail" alt="" class="w-full h-auto mb-4">
+        <p class="font-bold">Category: <span x-text="product.category" class="font-normal italic uppercase"></span></p>
+        <p x-text="product.description" class="text-black-700 mb-4"></p>
+        <p class="font-normal">Rating:  <span x-text="product.rating" class="font-bold italic text-green-400"></span></p>
+        <p class="font-semibold">Price: <span x-text="product.price" class="text-2xl text-blue-600"></span></p>
+    </div>
+</div>
+
+<div x-data="GetData()" x-init="ParseJson(GetRandom())">
+    <div class="max-w-md rounded overflow-hidden shadow-lg from-gray-50 p-4 m-4 bg-yellow-50">
+        <h1 x-text="product.title" class="text-center text-4xl font-bold mb-2 underline font-serif text-gray-600"></h1>
+        <img x-bind:src="product.thumbnail" alt="" class="w-full h-auto mb-4">
+        <p class="font-bold">Category: <span x-text="product.category" class="font-normal italic uppercase"></span></p>
+        <p x-text="product.description" class="text-black-700 mb-4"></p>
+        <p class="font-normal">Rating:  <span x-text="product.rating" class="font-bold italic text-green-400"></span></p>
+        <p class="font-semibold">Price: <span x-text="product.price" class="text-2xl text-blue-600"></span></p>
+    </div>
+</div>
+
+<div x-data="GetData()" x-init="ParseJson(GetRandom())">
+    <div class="max-w-md rounded overflow-hidden shadow-lg from-gray-50 p-4 m-4 bg-yellow-50">
+        <h1 x-text="product.title" class="text-center text-4xl font-bold mb-2 underline font-serif text-gray-600"></h1>
+        <img x-bind:src="product.thumbnail" alt="" class="w-full h-auto mb-4">
+        <p class="font-bold">Category: <span x-text="product.category" class="font-normal italic uppercase"></span></p>
+        <p x-text="product.description" class="text-black-700 mb-4"></p>
+        <p class="font-normal">Rating:  <span x-text="product.rating" class="font-bold italic text-green-400"></span></p>
+        <p class="font-semibold">Price: <span x-text="product.price" class="text-2xl text-blue-600"></span></p>
+    </div>
+</div>
+
+<div x-data="GetData()" x-init="ParseJson(GetRandom())">
+    <div class="max-w-md rounded overflow-hidden shadow-lg from-gray-50 p-4 m-4 bg-yellow-50">
+        <h1 x-text="product.title" class="text-center text-4xl font-bold mb-2 underline font-serif text-gray-600"></h1>
+        <img x-bind:src="product.thumbnail" alt="" class="w-full h-auto mb-4">
+        <p class="font-bold">Category: <span x-text="product.category" class="font-normal italic uppercase"></span></p>
+        <p x-text="product.description" class="text-black-700 mb-4"></p>
+        <p class="font-normal">Rating:  <span x-text="product.rating" class="font-bold italic text-green-400"></span></p>
+        <p class="font-semibold">Price: <span x-text="product.price" class="text-2xl text-blue-600"></span></p>
+    </div>
+</div>
+
+<script>
+function GetData() {
+    return {
+        product: {},
+        ParseJson: function(Id) {
+            fetch(`https://dummyjson.com/products/${Id}`)
+                .then(res => res.json())
+                .then(json => {
+                    this.product = json;
+                });
+        }
+    };
+}
+function GetRandom() {
+    return Math.floor(Math.random() * 10) + 1;
+}
+</script>
+
